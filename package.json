@@ -1,5 +1,24 @@
 {
   "dependencies": {
     "soquetic": "^1.4.2"
-  }
+  },
+  "name": "proyecto-3ro",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CiroLiebre09/proyecto-3ro.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CiroLiebre09/proyecto-3ro/issues"
+  },
+  "homepage": "https://github.com/CiroLiebre09/proyecto-3ro#readme",
+  "description": ""
 }
