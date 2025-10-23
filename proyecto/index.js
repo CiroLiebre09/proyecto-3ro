@@ -1,4 +1,4 @@
-// Registro
+import { subscribeGETEvent, subscribePOSTEvent, realTimeEvent, startServer } from "soquetic";
 
 function registrarse(usuario, mail, contraseña)
 {
@@ -9,7 +9,7 @@ for (let i = 0; i < ListaDeUsuarios.length; i++)
 
 if(usuario || mail === ListaDeUsuarios[i])
 {
-console.log("No es posible registrarse con ese usuario, ya existe");
+console.log("Ese usuario o mail ya está en uso");
 i = ListaDeUsuarios.length + 1;
 }
 if (i === ListaDeUsuarios.length)
@@ -39,3 +39,8 @@ console.log("hecho");
 }
 
 }
+
+subscribePOSTEvent("Regisro", registrarse);
+
+
+startServer(3000, true);
