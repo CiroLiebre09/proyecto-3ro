@@ -3,10 +3,13 @@ import { subscribeGETEvent, subscribePOSTEvent, realTimeEvent, startServer } fro
 
 function registrarse(usuario, contraseña)
 {
+    
 let listaDeUsuarios = JSON.parse(fs.readFileSync("usuarios.json", "utf8"));
-for (let i = 0; i < listaDeUsuarios.length; i++) 
-{
+console.log(listaDeUsuarios.length);
 
+for (let i = 0; i <= listaDeUsuarios.length; i++) 
+{
+    console.log(i);
 if(usuario === listaDeUsuarios[i])
 {
 console.log("Ese usuario o mail ya está en uso");
@@ -16,12 +19,13 @@ if (i === listaDeUsuarios.length)
 {
 console.log("hecho");
 listaDeUsuarios.push(usuario, contraseña);
-return fs.writeFileSync("usuarios.json", JSON.stringify(listaDeUsuarios, null, 2));
+fs.writeFileSync("usuarios.json", JSON.stringify(listaDeUsuarios, null, 2));
+i = listaDeUsuarios.length + 1;
 }
 }
 }
 
-/* Login
+Login
 function Login(usuario, mail)
 {
    let ListaDeUsuarios = fs.readFileSync("usuarios.json", "utf-8");
@@ -38,7 +42,7 @@ console.log("hecho");
 }
 }
 
-}*/
+}
 
 subscribePOSTEvent("registro", registrarse);
 

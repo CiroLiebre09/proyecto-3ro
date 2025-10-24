@@ -1,3 +1,17 @@
-{
-    
-}
+[
+  {
+    "user": "g",
+    "contraseña": "re"
+  },
+  null,
+  {
+    "user": "fg",
+    "contraseña": "f"
+  },
+  null,
+  {
+    "user": "g",
+    "contraseña": "re"
+  },
+  null
+]
