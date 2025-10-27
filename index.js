@@ -29,14 +29,48 @@ if (i === listaDeUsuarios.length)
 }
 if(ok)
 {
-    return "hecho";
+   
 }
 else{
- return "Ese usuario o mail ya está en uso";
-}
+ 
 }
 
-Login
+}
+function login(usuario, contraseña)
+{
+ let ok;   
+let listaDeUsuarios = JSON.parse(fs.readFileSync("usuarios.json", "utf8"));
+
+
+
+for (let i = 0; i <= listaDeUsuarios.length; i++) 
+{
+
+if (listaDeUsuarios[i])
+{
+ if(usuario.user === listaDeUsuarios[i].user && usuario.contraseña === listaDeUsuarios[i].contraseña)
+{
+ i = listaDeUsuarios.length + 1;
+ return console.log("ah iniciado sesión correctamente");
+}
+}
+if (i === listaDeUsuarios.length)
+{
+ i = listaDeUsuarios.length + 1;
+ return console.log("El usuario/contraseña es incorrecto");
+}
+}
+if(ok)
+{
+   
+}
+else{
+ 
+}
+
+}
+
+
 function Login(usuario, mail)
 {
    let ListaDeUsuarios = fs.readFileSync("usuarios.json", "utf-8");
