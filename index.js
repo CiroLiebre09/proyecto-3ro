@@ -2,37 +2,45 @@ import fs from "fs";
 import { subscribeGETEvent, subscribePOSTEvent, realTimeEvent, startServer } from "soquetic";
 let respuesta;
 
-function registrarse(usuario, contraseña)
+function registrarse(usuario)
 {
+console.log(usuario.user);
+console.log(usuario.contraseña);
  let ok;   
 let listaDeUsuarios = JSON.parse(fs.readFileSync("usuarios.json", "utf8"));
 
 for (let i = 0; i <= listaDeUsuarios.length; i++) 
 {
-
-if (listaDeUsuarios[i])
+if(usuario.user === "" || usuario.contraseña === "")
 {
- if(usuario.user === listaDeUsuarios[i].user)
+    return "Por favor complete todos los campos";
+}
+else
 {
- i = listaDeUsuarios.length + 1;
- ok = false;
- return "Ese usuario o mail ya está en uso";
-}
-}
-if (i === listaDeUsuarios.length)
-{
- listaDeUsuarios.push(usuario, contraseña);
- fs.writeFileSync("usuarios.json", JSON.stringify(listaDeUsuarios, null, 2));
- i = listaDeUsuarios.length + 1;
- ok = true;
- return "hecho";
+    if (listaDeUsuarios[i])
+        {
+         if(usuario.user === listaDeUsuarios[i].user)
+         {
+          i = listaDeUsuarios.length + 1;
+          ok = false;
+          return "Ese usuario o mail ya está en uso";
+         }
+        }
+        if (i === listaDeUsuarios.length)
+        {
+         listaDeUsuarios.push(usuario);
+         fs.writeFileSync("usuarios.json", JSON.stringify(listaDeUsuarios, null, 2));
+         i = listaDeUsuarios.length + 1;
+         ok = true;
+         return "hecho";
+        }
 }
 }
 }
 
 
 
-function login(usuario, contraseña)
+function login(usuario)
 {
  let ok;   
 let listaDeUsuarios = JSON.parse(fs.readFileSync("usuarios.json", "utf8"));
